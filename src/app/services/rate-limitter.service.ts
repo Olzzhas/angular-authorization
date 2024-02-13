@@ -9,7 +9,7 @@ export class RateLimitterService {
   private requestSubject = new Subject<void>();
 
   // Adjust the throttle time (milliseconds) based on your desired rate limit
-  private throttleTime = 2000;
+  private throttleTime = 8000;
 
   constructor() {}
 

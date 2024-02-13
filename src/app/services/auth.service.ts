@@ -68,13 +68,13 @@ export class AuthService {
   }
 
   checkAuth(): any{
-
     this.rateLimitterService.onRequestAllowed().subscribe(() => {
       this.http?.get<IAuthResponse>(`http://localhost:5000/user/refresh`, {withCredentials: true}).subscribe(userData =>{
           localStorage.setItem('accessToken', userData.accessToken)
           localStorage.setItem('currentUserID', userData.user.id)
           localStorage.setItem('currentUserEmail', userData.user.email)
 
+        console.log('1')
           return {
             accessToken: userData.accessToken,
             refreshToken: userData.refreshToken,
@@ -88,12 +88,9 @@ export class AuthService {
 
       )
 
-      localStorage.removeItem('accessToken')
-      localStorage.removeItem('currentUserID')
-      localStorage.removeItem('currentUserEmail')
       return null;
     });
-
+    this.rateLimitterService.triggerRequest()
   }
 
 }

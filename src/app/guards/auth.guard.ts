@@ -14,8 +14,8 @@ export class AuthGuard implements CanActivate {
   }
   canActivate(){
     if (localStorage.getItem("accessToken")){
+
       this.authService.checkAuth()
-      console.log("Token Refreshed Successfully!")
       return true;
     }
 

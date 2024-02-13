@@ -28,8 +28,14 @@ export class UserComponent implements OnInit{
   }
 
   test(){
-    console.log(`access token token: ${localStorage.getItem('accessToken')}`)
-    console.log(`email: ${localStorage.getItem('currentUserEmail')}`)
+    // console.log(`access token token: ${localStorage.getItem('accessToken')}`)
+    // console.log(`email: ${localStorage.getItem('currentUserEmail')}`)
+
+    this.authService.checkAuth()
   }
+
+  // test(){
+  //
+  // }
 
 }
